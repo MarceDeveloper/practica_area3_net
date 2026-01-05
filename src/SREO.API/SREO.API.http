@@ -4,3 +4,54 @@ GET {{SREO.API_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+# Register user
+POST {{SREO.API_HostAddress}}/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Test User",
+  "correoElectronico": "test@example.com",
+  "contrasena": "password123",
+  "rol": "Usuario"
+}
+
+###
+
+# Login
+POST {{SREO.API_HostAddress}}/auth/login
+Content-Type: application/json
+
+{
+  "correoElectronico": "test@example.com",
+  "contrasena": "password123"
+}
+
+###
+
+# Get espacios (requires auth)
+GET {{SREO.API_HostAddress}}/espacios
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+# Create espacio (requires auth)
+POST {{SREO.API_HostAddress}}/espacios
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+{
+  "nombre": "Sala de Reuniones A",
+  "tipo": "SalaReuniones",
+  "capacidad": 10,
+  "caracteristicas": "Proyector, WiFi",
+  "disponible": true
+}
+
+###
+
+# Get reservas (requires auth)
+GET {{SREO.API_HostAddress}}/reservas
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
