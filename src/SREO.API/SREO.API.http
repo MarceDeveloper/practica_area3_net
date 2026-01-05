@@ -1,0 +1,6 @@
+@SREO.API_HostAddress = http://localhost:5139
+
+GET {{SREO.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
